@@ -20,7 +20,7 @@ try {
 const root = resolve(__dirname, '../')
 const PRODUCTION = process.argv.includes('production')
 const ANALYZE = process.argv.includes('--analyze')
-const devtool = PRODUCTION ? false : 'inline-source-map'
+const devtool = PRODUCTION ? false : 'inline-cheap-module-source-map'
 const outputDir = resolve(root, 'dist/')
 const camelCase = str => str.replace(/-([a-z])/g, (m, w) => w.toUpperCase())
 
@@ -138,6 +138,9 @@ const webpackConfig = {
     }),
   ],
   devtool,
+  optimization: {    // 1. 这个配置必须
+    minimize: false
+  },
   resolve: {
     modules: [resolve(__dirname, 'src'), 'node_modules'],
     extensions: ['.js', '.scss'],

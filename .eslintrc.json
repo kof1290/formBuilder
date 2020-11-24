@@ -16,7 +16,7 @@
   },
   "rules": {
     "max-len": 0,
-    "linebreak-style": ["error", "unix"],
+    "linebreak-style": "off",
     "quotes": ["error", "single"],
     "semi": ["error", "never"],
     "no-unused-vars": 1,
